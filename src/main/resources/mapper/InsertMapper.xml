@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stone.mapper.InsertMapper">
+
+  <insert id="insertIntegerBeforeSort">
+    insert into t_integer (id, t_index, sort, t_value)
+    values (#{id}, #{index},#{sort}, #{value});
+  </insert>
+
+  <insert id="insertIntegerAfterSort" parameterType="com.stone.entity.Insert">
+    insert into t_integer (id, t_index, sort, t_value)
+    values (#{id}, #{index},#{sort}, #{value})
+  </insert>
+
+  <insert id="insertStringBeforeSort" parameterType="com.stone.entity.Insert">
+    insert into t_string (id, t_index, sort, t_value)
+    values (#{id}, #{index},#{sort}, #{value})
+  </insert>
+
+  <insert id="insertStringAfterSort" parameterType="com.stone.entity.Insert">
+    insert into t_string (id, t_index, sort, t_value)
+    values (#{id}, #{index},#{sort}, #{value})
+  </insert>
+
+
+  <insert id="insertBigDecimalBeforeSort" parameterType="com.stone.entity.Insert">
+    insert into t_big_decimal (id, t_index, sort, t_value)
+    values (#{id}, #{index},#{sort}, #{value})
+  </insert>
+
+  <insert id="insertBigDecimalAfterSort" parameterType="com.stone.entity.Insert">
+    insert into t_big_decimal (id, t_index, sort, t_value)
+    values (#{id}, #{index},#{sort}, #{value})
+  </insert>
+
+  <select id="searchIntegerTable" resultType="Integer">
+    select 1 from t_integer where id = #{id} limit 1;
+  </select>
+
+  <select id="searchStringTable" resultType="Integer">
+    select 1 from t_string where id = #{id} limit 1;
+  </select>
+
+  <select id="searchBigDecimalTable" resultType="Integer">
+    select 1 from t_big_decimal where id = #{id} limit 1;
+  </select>
+
+  <select id="getIntegerBeforeSort" resultType="Integer">
+    select t_value from t_integer where id = #{id} and sort = 0 order by t_index;
+  </select>
+
+  <select id="getIntegerAfterSort" resultType="Integer">
+    select t_value from t_integer where id = #{id} and sort = 1 order by t_index;
+  </select>
+
+  <select id="getStringBeforeSort" resultType="String">
+    select t_value from t_string where id = #{id} and sort = 0 order by t_index;
+  </select>
+
+  <select id="getStringAfterSort" resultType="String">
+    select t_value from t_string where id = #{id} and sort = 1 order by t_index;
+  </select>
+
+  <select id="getBigDecimalBeforeSort" resultType="BigDecimal">
+    select t_value from t_big_decimal where id = #{id} and sort = 0 order by t_index;
+  </select>
+
+  <select id="getBigDecimalAfterSort" resultType="BigDecimal">
+    select t_value from t_big_decimal where id = #{id} and sort = 1 order by t_index;
+  </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
